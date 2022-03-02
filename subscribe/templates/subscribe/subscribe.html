@@ -1,0 +1,11 @@
+{% extends 'sub_base.html' %}
+{% block content %}
+<form action="{% url 'subscribe:subscribe' %}" method="post">
+{% csrf_token %}
+    {% if message %}<p><strong>{{ message }}</strong></p>{% endif %}
+    <input type="email" name="subscriber" placeholder="Enter Email" required><br>
+    <input type="submit" value="Subscribe">
+</form>
+<br>
+<a href="{% url 'upload:upload' %}" >Upload File</a>
+{% endblock content %}
